@@ -21,7 +21,7 @@ spring:
   # PostgreSQL (Lokalde 5432'de çalışıyor) - Ortak Ayarlar
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: 1 # Kendi lokal kullanıcı adınız
+    username: postgres # Kendi lokal kullanıcı adınız
     password: 1 # Kendi lokal şifreniz
 
   jpa:
