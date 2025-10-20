@@ -24,6 +24,6 @@ rabbitmq:
 
 # JWT Token ayarları
 jwt:
-  secret: "398be7b3958e941ff1b7f917f64e0c06580a17e56741e2e5800f76d84a9402c5"
+  secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
   access-token-expiration-ms: 3600000 # 1 saat
   refresh-token-expiration-ms: 604800000 # 7 gün
