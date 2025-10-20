@@ -16,3 +16,10 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # "gateway" ve "health" endpoint'lerini dışarıya aç
+        include: "gateway,health"
