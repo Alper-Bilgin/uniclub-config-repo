@@ -1,3 +1,4 @@
+# Application Configuration File
 # Eureka sunucusunun adresi
 eureka:
   client:
