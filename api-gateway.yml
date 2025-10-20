@@ -1,24 +1,18 @@
 server:
-  port: 8080 # Gateway'in çalışacağı ana port
+  port: 8080
 
 spring:
   cloud:
     gateway:
-      # Yönlendirme (Routing) Kuralları
       discovery:
         locator:
-          enabled: true # Servisleri Eureka'dan otomatik bul
-          #lower-case-service-id: true  Servis adlarını küçük harfe çevir
+          enabled: true
       routes:
-        # Örnek: auth-service yönlendirmesi
-        # Dışarıdan /api/auth/** ile gelen istekleri
-        # Eureka'da "auth-service" olarak kayıtlı servise yönlendir
         - id: auth-service-route
-          uri: lb://AUTH-SERVICE # lb = Load Balancer (Eureka'dan bul)
+          uri: lb://AUTH-SERVICE
           predicates:
             - Path=/api/auth/**
 
-# Eureka'ya kayıt olmalı
 eureka:
   instance:
     prefer-ip-address: true
