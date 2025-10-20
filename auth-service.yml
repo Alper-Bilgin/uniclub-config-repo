@@ -1,9 +1,28 @@
-spring:
-  application:
-    name: auth-service # Servis adı
-  datasource:
-    # Ortak ayarları ezer
-    url: jdbc:postgresql://localhost:5432/unic_auth_db # Sadece bu servisin veritabanı
-
 server:
   port: 9001 # auth-service'in çalışacağı port
+
+spring:
+  # Veritabanı ayarları
+  # Ortak ayarlar (username, password, driver) application.yml'den gelecek
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db # Ana veritabanı
+  jpa:
+    hibernate:
+      ddl-auto: update # Tabloları otomatik oluştur/güncelle
+    properties:
+      hibernate:
+        # Bu servis için kullanılacak veritabanı şemasını belirtir
+        default_schema: auth_schema
+
+# RabbitMQ (Sadece hangi 'exchange' kullanılacağı)
+rabbitmq:
+  exchange:
+    name: "user_exchange"
+  routingkey:
+    user_created: "user.created.key"
+
+# JWT Token ayarları
+jwt:
+  secret: "398be7b3958e941ff1b7f917f64e0c06580a17e56741e2e5800f76d84a9402c5"
+  access-token-expiration-ms: 3600000 # 1 saat
+  refresh-token-expiration-ms: 604800000 # 7 gün
