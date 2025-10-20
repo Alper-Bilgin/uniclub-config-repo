@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: auth-service # Servis adı
+  datasource:
+    # Ortak ayarları ezer
+    url: jdbc:postgresql://localhost:5432/unic_auth_db # Sadece bu servisin veritabanı
+
+server:
+  port: 9001 # auth-service'in çalışacağı port
