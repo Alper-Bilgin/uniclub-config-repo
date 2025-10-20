@@ -8,7 +8,7 @@ spring:
       discovery:
         locator:
           enabled: true # Servisleri Eureka'dan otomatik bul
-          lower-case-service-id: true # Servis adlarını küçük harfe çevir
+          #lower-case-service-id: true  Servis adlarını küçük harfe çevir
       routes:
         # Örnek: auth-service yönlendirmesi
         # Dışarıdan /api/auth/** ile gelen istekleri
