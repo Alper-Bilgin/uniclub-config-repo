@@ -1,0 +1,31 @@
+server:
+  port: 9002 # Bu servis 9002 portunda çalışacak
+
+spring:
+  # Veritabanı (ana db'ye bağlan, ama profile_schema'yı kullan)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: profile_schema
+
+  # RabbitMQ (auth-service'in yayın yaptığı kuyruğu dinle)
+  rabbitmq:
+    listener:
+      simple:
+        # Hata durumunda mesajı tekrar denemesin
+        default-requeue-rejected: false
+
+# JWT (auth-service'teki secret'ın aynısı olmalı)
+jwt:
+  secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
+
+# MinIO (Adım 1'de docker-compose'da belirlediğimiz bilgiler)
+minio:
+  url: "http://localhost:9000"
+  accessKey: "minioadmin"
+  secretKey: "minioadmin"
+  bucketName: "uniclub-profiles" # Resimleri saklayacağımız kova (bucket)

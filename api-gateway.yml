@@ -13,6 +13,11 @@ spring:
           predicates:
             - Path=/api/auth/**
 
+        - id: user-profile-service-route
+          uri: lb://user-profile-service
+          predicates:
+            - Path=/api/profiles/**
+
 eureka:
   instance:
     prefer-ip-address: true
