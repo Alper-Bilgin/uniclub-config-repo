@@ -9,7 +9,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/uniclub_db # Ana veritabanı
   jpa:
     hibernate:
-      ddl-auto: create # Tabloları otomatik oluştur/güncelle
+      ddl-auto: update # Tabloları otomatik oluştur/güncelle
     properties:
       hibernate:
         # Bu servis için kullanılacak veritabanı şemasını belirtir
