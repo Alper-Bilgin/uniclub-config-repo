@@ -14,7 +14,7 @@ spring:
             - Path=/api/auth/**
 
         - id: user-profile-service-route
-          uri: lb://user-profile-service
+          uri: lb://USER-PROFILE-SERVICE
           predicates:
             - Path=/api/profiles/**
 
