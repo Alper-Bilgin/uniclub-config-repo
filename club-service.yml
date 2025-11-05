@@ -1,0 +1,31 @@
+server:
+  port: 9003 # Bu servis 9003 portunda çalışacak
+
+spring:
+  # Veritabanı (club_schema'yı kullan)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: club_schema
+
+  # RabbitMQ (Yeni bir exchange tanımlayalım)
+  rabbitmq:
+    exchange:
+      name: "club_exchange"
+    routingkey:
+      user_joined_club: "user.joined.club.key"
+        
+# JWT (auth-service'teki secret'ın aynısı olmalı)
+jwt:
+  secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
+
+# MinIO (Yeni logo bucket'ımız)
+minio:
+  url: "http://localhost:9000"
+  accessKey: "minioadmin"
+  secretKey: "minioadmin"
+  bucketName: "uniclub-logos" # Logoları saklayacağımız kova

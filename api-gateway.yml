@@ -8,15 +8,23 @@ spring:
         locator:
           enabled: true
       routes:
+        # 1. Rota: Auth Service
         - id: auth-service-route
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/api/auth/**, /api/requests/**, /api/admin/**
 
+        # 2. Rota: User Profile Service
         - id: user-profile-service-route
           uri: lb://USER-PROFILE-SERVICE
           predicates:
             - Path=/api/profiles/**
+
+        # 3. Rota: Club Service (YENİ)
+        - id: club-service-route
+          uri: lb://club-service
+          predicates:
+            - Path=/api/clubs/**
 
 eureka:
   instance:
