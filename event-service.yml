@@ -1,0 +1,29 @@
+server:
+  port: 9004 # Port 9004
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: event_schema
+
+  # Redis Ayarları (Docker)
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# JWT (Aynı Secret)
+jwt:
+  secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
+
+# MinIO
+minio:
+  url: "http://localhost:9000"
+  accessKey: "minioadmin"
+  secretKey: "minioadmin"
+  bucketName: "uniclub-events"

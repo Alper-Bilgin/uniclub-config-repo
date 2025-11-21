@@ -20,11 +20,17 @@ spring:
           predicates:
             - Path=/api/profiles/**
 
-        # 3. Rota: Club Service (YENİ)
+        # 3. Rota: Club Service
         - id: club-service-route
           uri: lb://club-service
           predicates:
             - Path=/api/clubs/**
+
+        # 4. Rota: Event Service
+        - id: event-service-route
+          uri: lb://event-service
+          predicates:
+            - Path=/api/events/**
 
 eureka:
   instance:
