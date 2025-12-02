@@ -32,6 +32,12 @@ spring:
           predicates:
             - Path=/api/events/**
 
+        # 5. Rota: Registration Service
+        - id: registration-service-route
+          uri: lb://registration-service
+          predicates:
+            - Path=/api/registrations/**
+
 eureka:
   instance:
     prefer-ip-address: true

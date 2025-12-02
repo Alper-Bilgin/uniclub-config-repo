@@ -19,11 +19,11 @@ spring:
         # Hata durumunda mesajı tekrar denemesin
         default-requeue-rejected: false
 
-# JWT (auth-service'teki secret'ın aynısı olmalı)
+# JWT
 jwt:
   secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
 
-# MinIO (Adım 1'de docker-compose'da belirlediğimiz bilgiler)
+# MinIO
 minio:
   url: "http://localhost:9000"
   accessKey: "minioadmin"
