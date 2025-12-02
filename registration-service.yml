@@ -17,13 +17,13 @@ spring:
       host: localhost
       port: 6379
 
-# RabbitMQ
+  # RabbitMQ Ayarları
   rabbitmq:
     exchange:
       name: "notification_exchange"
     routingkey:
       ticket_created: "ticket.created.key"
 
-# JWT
+# JWT Ayarları
 jwt:
   secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
