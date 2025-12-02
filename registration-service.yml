@@ -18,11 +18,11 @@ spring:
       port: 6379
 
 # RabbitMQ
-rabbitmq:
-  exchange:
-    name: "notification_exchange"
-  routingkey:
-    ticket_created: "ticket.created.key"
+  rabbitmq:
+    exchange:
+      name: "notification_exchange"
+    routingkey:
+      ticket_created: "ticket.created.key"
 
 # JWT
 jwt:
