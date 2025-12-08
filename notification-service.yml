@@ -1,0 +1,44 @@
+server:
+  port: 9006
+
+spring:
+  # Veritabanı (Loglama için)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: notification_schema
+
+  # Mail Sunucusu (Docker Mailpit)
+  mail:
+    host: localhost
+    port: 1025 # Mailpit SMTP portu
+    username: null
+    password: null
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+  # RabbitMQ Bağlantısı
+  rabbitmq:
+    host: localhost
+    port: 5672
+
+# Özel Ayarlarımız (RabbitMQ Kuyruk İsimleri)
+notification:
+  rabbitmq:
+    queue:
+      welcome-email: "notification_welcome_email_queue"
+      ticket-email: "notification_ticket_email_queue"
+    exchange:
+      user: "user_exchange"                 # Auth-Service'in exchange'i
+      notification: "notification_exchange" # Registration-Service'in exchange'i
+    routing-key:
+      user-created: "user.created.key"
+      ticket-created: "ticket.created.key"
