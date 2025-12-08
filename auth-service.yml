@@ -1,29 +1,28 @@
 # auth-service.yml
 server:
-  port: 9001 # auth-service'in çalışacağı port
+  port: 9001
 
 spring:
-  # Veritabanı ayarları
-  # Ortak ayarlar (username, password, driver) application.yml'den gelecek
   datasource:
-    url: jdbc:postgresql://localhost:5432/uniclub_db # Ana veritabanı
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+
   jpa:
     hibernate:
-      ddl-auto: update # Tabloları otomatik oluştur/güncelle
+      ddl-auto: update
     properties:
       hibernate:
-        # Bu servis için kullanılacak veritabanı şemasını belirtir
         default_schema: auth_schema
 
-# RabbitMQ (Sadece hangi 'exchange' kullanılacağı)
-rabbitmq:
-  exchange:
-    name: "user_exchange"
-  routingkey:
-    user_created: "user.created.key"
+  rabbitmq:
+    host: localhost
+    port: 5672
 
-# JWT Token ayarları
+auth:
+  rabbitmq:
+    exchange: "user_exchange"
+    routing-key: "user.created.key"
+
 jwt:
   secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
-  access-token-expiration-ms: 3600000 # 1 saat
-  refresh-token-expiration-ms: 604800000 # 7 gün
+  access-token-expiration-ms: 3600000
+  refresh-token-expiration-ms: 604800000

@@ -38,6 +38,12 @@ spring:
           predicates:
             - Path=/api/registrations/**
 
+        # 6. Rota: Notification Service
+        - id: notification-service-route
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notifications/**
+
 eureka:
   instance:
     prefer-ip-address: true
