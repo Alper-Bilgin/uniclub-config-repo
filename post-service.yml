@@ -1,0 +1,33 @@
+server:
+  port: 9007
+
+spring:
+  # Veritabanı (post_schema)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: post_schema
+
+  # Dosya Yükleme Boyutu
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# MinIO Ayarları
+minio:
+  url: "http://localhost:9000"
+  accessKey: "minioadmin"
+  secretKey: "minioadmin"
+  bucketName: "uniclub-posts" # Post resimlerini saklayacağımız kova
+
+# JWT Secret (Auth service ile aynı olmalı)
+jwt:
+  secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
+  access-token-expiration-ms: 3600000
+  refresh-token-expiration-ms: 604800000
