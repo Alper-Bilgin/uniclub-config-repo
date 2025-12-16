@@ -44,6 +44,12 @@ spring:
           predicates:
             - Path=/api/notifications/**
 
+        # 7. Rota: Post Service
+        - id: post-service-route
+          uri: lb://post-service
+          predicates:
+            - Path=/api/posts/**
+
 eureka:
   instance:
     prefer-ip-address: true
