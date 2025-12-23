@@ -18,10 +18,12 @@ spring:
       name: "club_exchange"
     routingkey:
       user_joined_club: "user.joined.club.key"
-        
+
 # JWT (auth-service'teki secret'ın aynısı olmalı)
 jwt:
   secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
+  access-token-expiration-ms: 3600000
+  refresh-token-expiration-ms: 604800000
 
 # MinIO (Yeni logo bucket'ımız)
 minio:

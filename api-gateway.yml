@@ -50,6 +50,12 @@ spring:
           predicates:
             - Path=/api/posts/**
 
+        # 8. Rota: Interaction Service
+        - id: interaction-service-route
+          uri: lb://interaction-service
+          predicates:
+            - Path=/api/interactions/**
+
 eureka:
   instance:
     prefer-ip-address: true
