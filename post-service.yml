@@ -24,7 +24,7 @@ minio:
   url: "http://localhost:9000"
   accessKey: "minioadmin"
   secretKey: "minioadmin"
-  bucketName: "uniclub-posts" # Post resimlerini saklayacağımız kova
+  bucketName: "uniclub_posts" # Post resimlerini saklayacağımız kova
 
 # JWT Secret (Auth service ile aynı olmalı)
 jwt:
