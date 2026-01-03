@@ -31,3 +31,14 @@ minio:
   accessKey: "minioadmin"
   secretKey: "minioadmin"
   bucketName: "uniclub-profiles" # Resimleri saklayacağımız kova (bucket)
+
+# Auth Servisiyle İletişim Ayarları
+auth:
+  rabbitmq:
+    exchange: "user_exchange" # Auth service ile aynı
+    routing-key: "user.created.key" # Auth service ile aynı
+
+# Profile Servisi RabbitMQ Ayarları
+profile:
+  rabbitmq:
+    queue: "profile_user_created_queue" # Bu servisin dinleyeceği kuyruk
