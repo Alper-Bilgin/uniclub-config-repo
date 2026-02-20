@@ -5,10 +5,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-  instance:
-    hostname: localhost
-    prefer-ip-address: false
-
 # RabbitMQ (Docker'da localhost:5672'de çalışıyor)
 spring:
   rabbitmq:
