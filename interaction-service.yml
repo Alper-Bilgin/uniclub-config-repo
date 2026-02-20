@@ -1,3 +1,4 @@
+# Interaction Service Configuration File
 server:
   port: 9008
 

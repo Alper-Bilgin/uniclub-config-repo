@@ -1,3 +1,4 @@
+# Club Service Configuration File
 server:
   port: 9003 # Bu servis 9003 portunda çalışacak
 

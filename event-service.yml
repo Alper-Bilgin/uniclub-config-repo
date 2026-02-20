@@ -1,3 +1,4 @@
+# Event Service Configuration File
 server:
   port: 9004
 
