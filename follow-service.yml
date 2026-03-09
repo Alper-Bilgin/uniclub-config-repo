@@ -1,0 +1,27 @@
+# follow-service.yml
+server:
+  port: 9009
+
+# Veritabanı Ayarları
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: follow_schema
+
+  # Redis Ayarları (Senin Docker Compose'a uygun)
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# JWT Ayarları (Senin payload'unu çözecek anahtar)
+jwt:
+  secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
+  access-token-expiration-ms: 3600000
+  refresh-token-expiration-ms: 604800000

@@ -1,3 +1,4 @@
+# Notification Service Configuration
 server:
   port: 9006
 
@@ -37,7 +38,7 @@ notification:
       welcome-email: "notification_welcome_email_queue"
       ticket-email: "notification_ticket_email_queue"
     exchange:
-      user: "user_exchange"                 # Auth-Service'in exchange'i
+      user: "user_exchange" # Auth-Service'in exchange'i
       notification: "notification_exchange" # Registration-Service'in exchange'i
     routing-key:
       user-created: "user.created.key"

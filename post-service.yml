@@ -1,3 +1,4 @@
+# Post Service Configuration
 server:
   port: 9007
 

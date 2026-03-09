@@ -57,6 +57,12 @@ spring:
           predicates:
             - Path=/api/interactions/**
 
+        # 9. Rota: Follow Service
+        - id: follow-service-route
+          uri: lb://follow-service
+          predicates:
+            - Path=/api/follows/**
+
 eureka:
   instance:
     prefer-ip-address: true
