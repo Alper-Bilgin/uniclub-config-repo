@@ -37,9 +37,12 @@ notification:
     queue:
       welcome-email: "notification_welcome_email_queue"
       ticket-email: "notification_ticket_email_queue"
+      follow-email: "notification_follow_email_queue" # YENİ
     exchange:
-      user: "user_exchange" # Auth-Service'in exchange'i
-      notification: "notification_exchange" # Registration-Service'in exchange'i
+      user: "user_exchange"
+      notification: "notification_exchange"
+      follow: "follow_exchange" # YENİ (Follow service'in kullandığı isim)
     routing-key:
       user-created: "user.created.key"
       ticket-created: "ticket.created.key"
+      follow-event: "follow.created.key" # YENİ (Follow service'in routing keyi)
