@@ -41,8 +41,8 @@ notification:
     exchange:
       user: "user_exchange"
       notification: "notification_exchange"
-      follow: "follow_exchange" # YENİ (Follow service'in kullandığı isim)
+      follow: "follow.exchange" # YENİ (Follow service'in kullandığı isim)
     routing-key:
       user-created: "user.created.key"
       ticket-created: "ticket.created.key"
-      follow-event: "follow.created.key" # YENİ (Follow service'in routing keyi)
+      follow-event: "follow.created" # YENİ (Follow service'in routing keyi)
