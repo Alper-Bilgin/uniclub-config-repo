@@ -20,12 +20,20 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 
+# RabbitMQ event configuration
+post:
+  rabbitmq:
+    exchange: "post.exchange"
+    routing-key:
+      post-created: "post.created"
+      post-deleted: "post.deleted"
+
 # MinIO Ayarları
 minio:
   url: "http://localhost:9000"
   accessKey: "minioadmin"
   secretKey: "minioadmin"
-  bucketName: "uniclubposts" # Post resimlerini saklayacağımız kova
+  bucketName: "uniclubposts"
 
 # JWT Secret (Auth service ile aynı olmalı)
 jwt:
