@@ -1,0 +1,36 @@
+server:
+  port: 9010
+
+spring:
+  # Redis Ayarları (Akış verileri için)
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# JWT
+jwt:
+  secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
+  access-token-expiration-ms: 3600000
+  refresh-token-expiration-ms: 604800000
+
+# RabbitMQ Feed Service Özel Ayarları
+feed:
+  rabbitmq:
+    # Post servisinin gönderdiği Exchange'i dinliyoruz
+    exchange: "post.exchange"
+    queue:
+      # Feed servisinin kendine ait kuyruğu
+      post-event-queue: "feed_post_event_queue"
+    routing-key:
+      # Post Service'in fırlattığı key'ler
+      post-created: "post.created"
+      post-deleted: "post.deleted"
+
+# Diğer servislere toplu istek atarken Feign timeout olmasın diye
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000

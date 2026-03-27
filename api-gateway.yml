@@ -63,6 +63,12 @@ spring:
           predicates:
             - Path=/api/follows/**
 
+        # 10. Rota: Feed Service
+        - id: feed-service-route
+          uri: lb://feed-service
+          predicates:
+            - Path=/api/feed/**
+
 eureka:
   instance:
     prefer-ip-address: true
