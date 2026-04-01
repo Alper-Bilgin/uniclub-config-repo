@@ -69,6 +69,12 @@ spring:
           predicates:
             - Path=/api/feed/**
 
+        # 11. Rota: Gamification Service
+        - id: gamification-service-route
+          uri: lb://gamification-service
+          predicates:
+            - Path=/api/gamification/**
+
 eureka:
   instance:
     prefer-ip-address: true

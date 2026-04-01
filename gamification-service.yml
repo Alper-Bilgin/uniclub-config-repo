@@ -1,0 +1,20 @@
+server:
+  port: 9011
+
+spring:
+  # PostgreSQL Ayarları
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uniclub_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: gamification_schema
+
+# Servise özel kuyruk ve exchange isimlerimiz
+gamification:
+  rabbitmq:
+    exchange: gamification.exchange
+    queue: gamification.events.queue
+    routing-key: gamification.event.#
