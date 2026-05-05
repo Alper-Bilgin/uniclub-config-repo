@@ -75,6 +75,19 @@ spring:
           predicates:
             - Path=/api/gamification/**
 
+        # 12. Chat Service - Standart HTTP İstekleri (Mesaj geçmişini çekme vs.)
+        - id: chat-service-http
+          uri: lb://CHAT-SERVICE
+          predicates:
+            - Path=/api/chat/**
+
+        # 13. Chat Service - WebSocket İstekleri (Canlı bağlantı)
+        # DİKKAT: Yük dengeleme (lb) ile birlikte 'ws://' protokolü kullanıyoruz!
+        - id: chat-service-ws
+          uri: lb:ws://CHAT-SERVICE
+          predicates:
+            - Path=/ws/**
+
 eureka:
   instance:
     prefer-ip-address: true
