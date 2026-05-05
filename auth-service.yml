@@ -22,6 +22,11 @@ auth:
     exchange: "user_exchange"
     routing-key: "user.created.key"
 
+gamification:
+  rabbitmq:
+    exchange: gamification.exchange
+    routing-key: gamification.event.user.login
+
 jwt:
   secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
   access-token-expiration-ms: 3600000

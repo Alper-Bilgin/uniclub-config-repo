@@ -35,6 +35,11 @@ minio:
   secretKey: "minioadmin"
   bucketName: "uniclubposts"
 
+gamification:
+  rabbitmq:
+    exchange: gamification.exchange
+    routing-key: gamification.event.post.created
+
 # JWT Secret (Auth service ile aynı olmalı)
 jwt:
   secret: "bmljZS1zZWNyZXQtZm9yLXVuaWNsdWItY29ubmVjdC1wcm9qZWN0LXdpdGgtZW5vdWdoLWJ5dGVzLWZvci1oczUxMg=="
