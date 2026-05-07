@@ -37,12 +37,15 @@ notification:
     queue:
       welcome-email: "notification_welcome_email_queue"
       ticket-email: "notification_ticket_email_queue"
-      follow-email: "notification_follow_email_queue" # YENİ
+      follow-email: "notification_follow_email_queue"
+      chat-notification: "notification_chat_message_queue"
     exchange:
       user: "user_exchange"
       notification: "notification_exchange"
-      follow: "follow.exchange" # YENİ (Follow service'in kullandığı isim)
+      follow: "follow.exchange"
+      chat: "chat_exchange"
     routing-key:
       user-created: "user.created.key"
       ticket-created: "ticket.created.key"
-      follow-event: "follow.created" # YENİ (Follow service'in routing keyi)
+      follow-event: "follow.created"
+      unread-message: "chat.message.unread"
