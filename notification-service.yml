@@ -39,6 +39,7 @@ notification:
       ticket-email: "notification_ticket_email_queue"
       follow-email: "notification_follow_email_queue"
       chat-notification: "notification_chat_message_queue"
+      password-reset: "notification_password_reset_queue"
     exchange:
       user: "user_exchange"
       notification: "notification_exchange"
@@ -49,3 +50,4 @@ notification:
       ticket-created: "ticket.created.key"
       follow-event: "follow.created"
       unread-message: "chat.message.unread"
+      password-reset: "user.reset.key"
