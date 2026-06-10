@@ -10,33 +10,34 @@ Aşağıdaki diyagramda, istemcilerin **API Gateway** üzerinden servislere nas�
 
 ```mermaid
 graph TD
-    Client[İstemci / Web UI / Mobil Uygulama] -->|Port 8080| Gateway[API Gateway]
-    
-    Gateway -->|/api/auth/**<br>/api/requests/**<br>/api/admin/**| AuthService[Auth Service :9001]
-    Gateway -->|/api/profiles/**| ProfileService[UserProfile Service :9002]
-    Gateway -->|/api/clubs/**| ClubService[Club Service :9003]
-    Gateway -->|/api/events/**| EventService[Event Service :9004]
-    Gateway -->|/api/registrations/**| RegService[Registration Service :9005]
-    Gateway -->|/api/notifications/**| NotificationService[Notification Service :9006]
-    Gateway -->|/api/posts/**| PostService[Post Service :9007]
-    Gateway -->|/api/interactions/**| InteractionService[Interaction Service :9008]
-    Gateway -->|/api/follows/**| FollowService[Follow Service :9009]
-    Gateway -->|/api/feed/**| FeedService[Feed Service :9010]
-    Gateway -->|/api/gamification/**| GamificationService[Gamification Service :9011]
-    Gateway -->|/api/chat/** (HTTP)<br>/ws/** (WebSocket)| ChatService[Chat Service :9012]
-    
-    subgraph Kayıt & Keşif
-        Eureka[Eureka Discovery Server :8761]
+
+    Client["Istemci / Web UI / Mobil Uygulama"] -->|Port 8080| Gateway["API Gateway"]
+
+    Gateway -->|Auth API| AuthService["Auth Service :9001"]
+    Gateway -->|Profile API| ProfileService["UserProfile Service :9002"]
+    Gateway -->|Club API| ClubService["Club Service :9003"]
+    Gateway -->|Event API| EventService["Event Service :9004"]
+    Gateway -->|Registration API| RegService["Registration Service :9005"]
+    Gateway -->|Notification API| NotificationService["Notification Service :9006"]
+    Gateway -->|Post API| PostService["Post Service :9007"]
+    Gateway -->|Interaction API| InteractionService["Interaction Service :9008"]
+    Gateway -->|Follow API| FollowService["Follow Service :9009"]
+    Gateway -->|Feed API| FeedService["Feed Service :9010"]
+    Gateway -->|Gamification API| GamificationService["Gamification Service :9011"]
+    Gateway -->|Chat API ve WebSocket| ChatService["Chat Service :9012"]
+
+    subgraph "Kayit ve Kesif"
+        Eureka["Eureka Discovery Server :8761"]
     end
-    
-    subgraph Ortak Altyapı Bileşenleri
-        DB[(PostgreSQL :5432<br>uniclub_db)]
-        Redis[(Redis :6379)]
-        RabbitMQ[RabbitMQ :5672]
-        MinIO[(MinIO Object Storage :9000)]
-        Mailpit[Mailpit SMTP :1025]
+
+    subgraph "Ortak Altyapi Bilesenleri"
+        DB[("PostgreSQL :5432 - uniclub_db")]
+        Redis[("Redis :6379")]
+        RabbitMQ["RabbitMQ :5672"]
+        MinIO[("MinIO Object Storage :9000")]
+        Mailpit["Mailpit SMTP :1025"]
     end
-    
+
     AuthService -.-> Eureka
     ProfileService -.-> Eureka
     ClubService -.-> Eureka
@@ -49,6 +50,31 @@ graph TD
     FeedService -.-> Eureka
     GamificationService -.-> Eureka
     ChatService -.-> Eureka
+
+    AuthService --> DB
+    ProfileService --> DB
+    ClubService --> DB
+    EventService --> DB
+    RegService --> DB
+    NotificationService --> DB
+    PostService --> DB
+    InteractionService --> DB
+    FollowService --> DB
+    FeedService --> DB
+    GamificationService --> DB
+    ChatService --> DB
+
+    FeedService --> Redis
+    ChatService --> Redis
+
+    NotificationService --> RabbitMQ
+    PostService --> RabbitMQ
+    FeedService --> RabbitMQ
+    GamificationService --> RabbitMQ
+
+    ProfileService --> MinIO
+
+    NotificationService --> Mailpit
 ```
 
 ---
